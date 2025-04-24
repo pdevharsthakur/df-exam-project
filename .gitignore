@@ -1,0 +1,70 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Project specific
+dist/
+
+# Exclude directory contents but keep the directories with .gitkeep
+images/*
+!images/.gitkeep
+
+docs/*
+!docs/.gitkeep
+
+db/*
+!db/.gitkeep
+
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+*.code-workspace
+
+# Python virtual environments and cache
+python/venv/
+python/__pycache__/
+python/**/__pycache__/
+python/**/*.pyc
+python/**/*.pyo
+python/**/*.pyd
+venv/
+*.py[cod]
+
+# Test data files
+test-data/
+*.tmp
+temp/
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Build results
+build/
