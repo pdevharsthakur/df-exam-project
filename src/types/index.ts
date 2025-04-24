@@ -1,9 +1,22 @@
 /**
- * Type definitions for Digital Forensics File Analysis Tool
+ * @file Type definitions for Digital Forensics File Analysis Tool
+ * @description
+ * This file contains all TypeScript interfaces and types used throughout the application.
+ * It provides a central location for type definitions to ensure consistency and type safety
+ * across the entire codebase.
+ * 
+ * The types defined here represent:
+ * - Analysis result structures from Python scripts
+ * - Command-line interface options
+ * - Report data structures and formats
+ * - Configuration interfaces for various services
+ * 
+ * @module Types
  */
 
 /**
  * Interface representing the analysis result from the Python backend
+ * Contains all metadata and hash information extracted from analyzed files
  */
 export interface AnalysisResult {
   file_path: string;
@@ -26,7 +39,8 @@ export interface AnalysisResult {
 }
 
 /**
- * Command-line options
+ * Command-line options for the application
+ * Used to control analysis behavior and output formatting
  */
 export interface CliOptions {
   files: string[];

@@ -1,8 +1,26 @@
 """
-analyzer.py
-Digital Forensics File Analysis Tool - Backend Processor
-Analyzes file metadata, hashes, and EXIF data, providing results in JSON format
-Designed to be called as a subprocess from the Node.js frontend
+Digital Forensics File Analysis Tool - Backend Analyzer
+
+This module provides the core analysis functionality for the Digital Forensics File Analysis Tool.
+It serves as the Python backend that performs detailed file analysis and returns structured results 
+to the Node.js frontend. This creates a powerful hybrid architecture leveraging the strengths of both
+Node.js for the user interface and Python for the analysis capabilities.
+
+Features:
+- File metadata extraction (size, timestamps)
+- Cryptographic hash calculation (MD5, SHA1, SHA256)
+- File type detection using libmagic
+- EXIF metadata extraction from images
+- JSON output for seamless integration with the Node.js frontend
+
+Usage:
+    python analyzer.py FILE [FILE...] --format json
+
+Dependencies:
+    - python-magic: For file type detection
+    - exifread: For EXIF data extraction from images
+
+This script is designed to be called as a subprocess from the Node.js frontend.
 """
 
 import os

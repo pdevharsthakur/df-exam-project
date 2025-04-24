@@ -1,5 +1,18 @@
 /**
- * Report formatter for Digital Forensics File Analysis Tool
+ * @file Report formatter for Digital Forensics File Analysis Tool
+ * @description
+ * This module handles all formatting of analysis results into human-readable reports.
+ * It transforms raw analysis data into formatted tables and text with proper styling,
+ * color coding, and organization for console output or file export.
+ * 
+ * The formatter provides:
+ * - Conversion of raw analysis data into structured, readable tables
+ * - Color-coded output for better readability in the terminal
+ * - Transformation of technical metadata into user-friendly formats
+ * - Support for both summary and detailed views of forensic data
+ * - Special formatting for different data types (EXIF, hashes, timestamps)
+ * 
+ * @module Core/Formatter
  */
 import chalk from 'chalk';
 import Table from 'cli-table3';
@@ -21,10 +34,10 @@ interface FileDetailsObject {
 }
 
 /**
- * Creates a clean header for the report
+ * Creates a clean header for the report with decorative borders
  *
  * @param text The text to display in the header
- * @returns Formatted header string
+ * @returns Formatted header string with box drawing characters
  */
 function createHeader(text: string): string {
   return `\n${chalk.bold.white('┏' + '━'.repeat(78) + '┓')}
@@ -33,11 +46,12 @@ ${chalk.bold.white('┗' + '━'.repeat(78) + '┛')}\n`;
 }
 
 /**
- * Formats the analysis results into a human-readable report
+ * Formats the analysis results into a human-readable report with tables and sections
+ * for each analyzed file and its properties
  *
- * @param results Array of file analysis results
+ * @param results Array of file analysis results from the analyzer
  * @param viewAll Whether to display all metadata tags (true) or just important ones (false)
- * @returns Formatted string containing the complete report
+ * @returns Formatted string containing the complete report with styling
  */
 export function formatResults(results: AnalysisResult[], viewAll = false): string {
   let output = '';

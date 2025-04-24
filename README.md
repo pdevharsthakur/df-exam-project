@@ -17,16 +17,65 @@ A comprehensive tool for analyzing files for forensic investigation, extracting 
 - 🐍 Python 3.x
 - 📥 pnpm (or npm/yarn)
 
+## 🐍 Python Setup
+
+This project requires Python for the core analysis functionality. There are two recommended approaches to set up the Python environment:
+
+### Option 1: Using Miniconda (Preferred) or Anaconda
+
+```bash
+# Install Miniconda if you don't have it already
+# Download from: https://docs.conda.io/en/latest/miniconda.html
+
+# Create a new conda environment
+conda create -n forensics python=3.10
+
+# Activate the environment
+conda activate forensics
+
+# Install dependencies
+conda install -c conda-forge python-magic
+conda install -c conda-forge exifread
+```
+
+Alternatively, you can use the provided environment.yml file:
+
+```bash
+# Create the environment from the environment.yml file
+cd python
+conda env create -f environment.yml
+
+# Activate the environment
+conda activate forensics
+```
+
+### Option 2: Using a Python Virtual Environment
+
+```bash
+# Create a virtual environment
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies from requirements.txt
+cd python
+pip install -r requirements.txt
+```
+
+On Windows, you might need to install additional dependencies for python-magic to work:
+```bash
+pip install python-magic-bin
+```
+
 ### 🐍 Python Dependencies
 
-```bash
-pip install python-magic exifread
-```
-
-On Windows, you might need:
-```bash
-pip install python-magic-bin exifread
-```
+Both approaches will install:
+- `python-magic`: For file type detection
+- `exifread`: For EXIF data extraction from images
 
 ## 🚀 Installation
 
@@ -106,6 +155,10 @@ If you encounter any issues:
 3. 📦 Check Node.js version (v16+ recommended)
 4. 🔎 Review logs for any error messages
 
+## 🙏 Acknowledgments
+
+This project was inspired by [SnehuD's imageforensics-mini-project](https://github.com/SnehuD/imageforensics-mini-project.git), a Cyber Security & Design Forensics Project focused on digital forensics of images.
+
 ## 📜 License
 
-MIT License 
+MIT License

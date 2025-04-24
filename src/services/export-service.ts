@@ -1,5 +1,18 @@
 /**
- * Export service - Handles exporting analysis results to files
+ * @file Export service for saving analysis results to files
+ * @description
+ * This service handles exporting forensic analysis results to files in different formats.
+ * It provides functionality to save results as either structured JSON or formatted text,
+ * managing file paths, directory creation, and proper formatting of the exported data.
+ * 
+ * The ExportService provides:
+ * - Export of analysis results in JSON or text format
+ * - Automatic creation of output directories as needed
+ * - Timestamped filenames for result traceability
+ * - Path resolution and validation
+ * - ANSI code stripping for clean text output
+ * 
+ * @module Services/ExportService
  */
 import path from 'path';
 import chalk from 'chalk';
@@ -11,15 +24,16 @@ import { writeFile, isDirectory, ensureDir, stripAnsiCodes } from '../utils/fs-u
 import { createTimestampedFilename, ensureExtension } from '../utils/paths.js';
 
 /**
- * Service for exporting analysis results to files
+ * Service for exporting analysis results to files with support for
+ * multiple formats and customizable export locations
  */
 export class ExportService {
   /**
-   * Exports analysis results to a file
+   * Exports analysis results to a file with proper formatting
    *
-   * @param config Export configuration
-   * @param spinner Optional spinner for progress indication
-   * @returns Promise that resolves when export is complete
+   * @param config Export configuration with format, path and data to export
+   * @param spinner Optional spinner for visual progress indication
+   * @returns Promise that resolves to the final path where data was exported
    */
   async exportResults(config: ExportConfig, spinner?: Ora): Promise<string> {
     const { format, path: exportPath, data } = config;
@@ -69,11 +83,12 @@ export class ExportService {
   }
 
   /**
-   * Resolves the final export path, ensuring directories exist
+   * Resolves the final export path, ensuring directories exist and
+   * file extensions are appropriate for the chosen format
    *
-   * @param exportPath User-provided export path (or empty)
+   * @param exportPath User-provided export path (or empty for default)
    * @param format Export format ('json' or 'text')
-   * @returns Promise resolving to the final absolute path
+   * @returns Promise resolving to the final absolute file path
    */
   private async resolveFinalPath(exportPath: string, format: 'json' | 'text'): Promise<string> {
     const extension = format === 'json' ? 'json' : 'txt';

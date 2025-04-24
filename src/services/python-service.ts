@@ -1,5 +1,17 @@
 /**
- * Python service - Handles execution of Python analyzer scripts
+ * @file Python service for executing analyzer scripts
+ * @description
+ * This service handles the communication between the Node.js application and the Python
+ * analyzer scripts that perform the file analysis tasks. It manages spawning Python processes,
+ * passing file paths for analysis, and parsing the returned JSON results.
+ * 
+ * The PythonService provides:
+ * - Script existence verification to ensure Python scripts are available
+ * - Execution of Python file analyzer scripts with proper error handling
+ * - Parsing and validation of results from Python analysis
+ * - Real-time progress reporting via spinners
+ * 
+ * @module Services/PythonService
  */
 import { spawn } from 'child_process';
 import path from 'path';
@@ -19,7 +31,8 @@ const DEFAULT_CONFIG: AnalyzerConfig = {
 };
 
 /**
- * Service for executing Python analyzer scripts
+ * Service for executing Python analyzer scripts and handling the results
+ * Serves as a bridge between the TypeScript application and Python-based analysis tools
  */
 export class PythonService {
   private config: AnalyzerConfig;

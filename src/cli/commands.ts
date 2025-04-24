@@ -1,5 +1,18 @@
 /**
- * Command handlers for CLI operations
+ * @file Command handler for CLI operations
+ * @description
+ * This file implements the command-line interface for the Digital Forensics File Analysis Tool.
+ * It parses command-line arguments, manages the execution of analysis operations,
+ * and handles output formatting and file exporting.
+ * 
+ * The CommandHandler class provides the following capabilities:
+ * - Parses command-line arguments
+ * - Executes file analysis via Python scripts
+ * - Formats and displays analysis results
+ * - Handles file export operations
+ * - Manages report history and verification
+ * 
+ * @module CLI/Commands
  */
 import { Command } from 'commander';
 import chalk from 'chalk';
@@ -15,7 +28,8 @@ import { writeFile } from '../utils/fs-utils.js';
 import { ReportHistoryService } from '../services/report-history-service.js';
 
 /**
- * Command handler for the CLI
+ * Command handler for the CLI that orchestrates all analysis operations
+ * and manages the command-line interface
  */
 export class CommandHandler {
   private program: Command;

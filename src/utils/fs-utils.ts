@@ -1,5 +1,14 @@
 /**
- * File system utility functions
+ * @file File system utility functions
+ * @description
+ * This file provides utility functions for interacting with the file system.
+ * These utilities handle common file operations needed throughout the application,
+ * including directory creation, file existence checking, and safe file writing.
+ * 
+ * The module also provides functionality for handling ANSI escape codes in text output,
+ * which is useful when saving colorized console output to files.
+ * 
+ * @module Utils/FileSystem
  */
 import fs from 'fs/promises';
 import path from 'path';
@@ -11,6 +20,7 @@ const ANSI_REGEX = /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-
 
 /**
  * Strips ANSI color codes from a string
+ * Used when saving colored console output to plain text files
  *
  * @param text Text with potential ANSI codes
  * @returns Clean text without ANSI codes
